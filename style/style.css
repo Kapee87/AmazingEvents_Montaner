@@ -12,17 +12,16 @@ header {
   margin-bottom: 5rem;
 }
 .logo {
-  min-width: 3rem;
+  min-width: 5rem;
   max-width: 10rem;
   width: 10vw;
 }
 .back,
 .next {
   width: 5vw;
-
   height: 3vh;
   background-size: cover;
-  background-repeat: no-repeat;
+  transition: all 2s;
 }
 .back {
   background: url("../assets/caret-left.svg");
@@ -30,15 +29,17 @@ header {
 }
 .back:hover {
   background: url("../assets/caret-left-fill.svg");
-  background-repeat: no-repeat;
+  transition: all 2s;
 }
 .next {
   background: url("../assets/caret-right.svg");
   background-repeat: no-repeat;
+  background-position: right;
 }
 .next:hover {
   background: url("../assets/caret-right-fill.svg");
-  background-repeat: no-repeat;
+  background-position: right;
+  transition: all 2s;
 }
 .offcanvas-body .navbar-nav li .active {
   background-color: #adb5bd;
@@ -51,19 +52,21 @@ body > aside {
   height: 1rem !important;
 }
 
-/* Seción main */
-.main {
-  margin-bottom: 5rem;
+/* Seción home */
+
+main {
+  margin: 5rem 0;
 }
 
 .card {
   min-width: 18rem;
   width: 22%;
   height: 45vh;
+  background-color: #0603da95;
 }
 .card-img {
-    background-color: rgb(167, 120, 215);
-    padding: .1rem;
+  background-color: rgb(167, 120, 215);
+  padding: 0.1rem;
   width: 90%;
   max-width: 28rem;
   height: 40%;
@@ -78,6 +81,8 @@ footer {
   bottom: 0;
 }
 
+/* Sección upcoming */
+
 /* Sección stats */
 
 .statsTableContainer {
@@ -86,39 +91,62 @@ footer {
   padding: 1rem;
 }
 
-.statsCaption{
-    background-color: #adb5bd;
-    padding: .8rem .8rem;
+.statsCaption {
+  background-color: #adb5bd;
+  padding: 0.8rem 0.8rem;
 }
 
 /* Sección Contact */
 .contact {
   max-width: 50rem;
-  min-width: 30rem;
 }
 .contact div #submit {
   margin: 5px;
-  
   width: 10vw;
   min-width: 10rem;
   align-self: flex-end;
 }
 
 /* Sección Details */
-.detailsImg img{
-  width: max-content;
-  
+
+.detailsContainer ul {
+  list-style-type: none;
+}
+.detailsImg img {
+  max-width: 25rem;
+  width: 75vw;
   height: max-content;
+}
+.listContainer {
+  display: flex;
+  gap: 3rem;
+  border-bottom: #adb5bd 1px solid;
+}
+h1 {
+  min-width: 15rem;
 }
 
 @media screen and (max-width: 768px) {
   .navbar-toggler {
-    transform: scale(0.8);
+    transform: scale(0.7);
   }
   h1 {
     transform: scale(0.5);
   }
+
   header {
     margin-bottom: 6rem;
+  }
+  .statsTableContainer caption,
+  .statsTableContainer th,
+  .statsTableContainer td {
+    font-size: small;
+  }
+  .listContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-bottom: none;
+    border-top: #adb5bd 1px solid;
   }
 }
