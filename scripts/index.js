@@ -12,6 +12,8 @@ for (let i in data.events) {
 
   //asignacion de clases
   card.classList.add("card");
+  card.classList.add("border-light");
+  card.classList.add("p-3");
   img.className = "card-img mt-2";
   cardBodyTitle.classList.add("card-title");
   cardBodyP.classList.add("card-title");

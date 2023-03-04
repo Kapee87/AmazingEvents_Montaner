@@ -15,8 +15,8 @@ for (let i in categoryArray) {
   let categoryP = document.createElement("p");
 
   categoryCheck.type = "checkbox";
-  categoryCheck.className = "me-sm-2";
-  categoryLabel.className = "d-flex align-items-center gap-2 fs--6"
+  categoryCheck.className = "form-check-input me-sm-2 ";
+  categoryLabel.className = "d-flex gap-2"
   categoryP.textContent = categoryArray[i];
 
   categoryLabel.appendChild(categoryCheck);
