@@ -12,7 +12,7 @@ let detailCapacity = document.getElementById("detailCapacity");
 let detailEstimate = document.getElementById("detailEstimate");
 let detailPrice = document.getElementById("detailPrice");
 
-console.log(detailsEvent);
+console.log(data.currentDate);
 img.src = detailsEvent.image;
 detailName.textContent = detailsEvent.name;
 detailDate.textContent = detailsEvent.date;

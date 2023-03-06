@@ -109,13 +109,14 @@ aside form label p {
 /* Seción home */
 
 main {
-  margin: 5rem 0;
+  margin: 1rem 0 5rem 0;
+
 }
 
 .card {
   min-width: 18rem;
   width: 22%;
-  min-height: 27rem;
+  min-height: 28rem;
   height: 45vh;
   padding: 0.3rem;
   transition: box-shadow 0.7s;
@@ -299,7 +300,6 @@ h1 {
   .detailsSubContainer {
     height: 65vh;
     min-height: 479px;
-    overflow: scroll;
   }
   .detailsImg {
     min-height: 479px;
