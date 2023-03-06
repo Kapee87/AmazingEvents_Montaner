@@ -5,22 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazing Events</title>
-    <link rel="shortcut icon" href="./assets/icons8-estrella-16.png" type="image/x-icon">
+    <title>Details | AmazingEvents</title>
+    <link rel="shortcut icon" href="./assets/android-chrome-192x192.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="./style/style.css">
 </head>
 
-<body>
-    <header class="pb-5">
+<body class="d-flex flex-column">
+    <header class="pb-3 mb-3">
         <nav class="navbar bg-dark navbar-dark fixed-top px-5 justify-content-center ">
-            <div class="container-fluid d-flex flex-md-row justify-content-md-between justify-content-center gap-2">
+            <div
+                class="container-fluid d-flex flex-sm-row align-content-center justify-content-sm-between justify-content-center gap-2">
                 <a class="navbar-brand" href="./index.html"><img src="./assets/Logo_Amazing_Events.png"
-                        alt="Logo con link a página principal" class="logo" /></a>
+                        alt="Logo con link a página principal" class="logo"></a>
 
                 <ul
-                    class="navbar-nav d-flex flex-row gap-2 justify-content-sm-end flex-grow-1 pe-3 flex-wrap flex-sm-nowrap justify-content-center">
+                    class="navbar-nav d-none d-md-flex flex-row gap-2 justify-content-sm-end flex-grow-1 pe-3 flex-wrap flex-sm-nowrap justify-content-center">
                     <li class="nav-item">
                         <a class="nav-link text-light" href="./index.html">Home</a>
                     </li>
@@ -37,37 +38,64 @@
                         <a class="nav-link text-light" href="./stats.html">Stats</a>
                     </li>
                 </ul>
-
+                <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú </h5><img
+                        src="./assets/Logo_Amazing_Events.png" height="20" alt="Logo">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="./upcomingEvents.html">Upcoming Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="./pastEvents.html">Past Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark " href="./stats.html">Stats</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link active " aria-current="page" href="./stats.html">Details</span>
+                        </li>
 
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
     <main class="container d-flex justify-content-center">
-        <div class="container border rounded d-flex flex-column flex-lg-row gap-2 bg-warning-subtle detailsContainer">
+        <div class="container border rounded d-flex flex-column flex-lg-row gap-2 detailsContainer">
             <div class="detailsImg py-3 d-flex justify-content-center justify-content-lg-start align-items-lg-center">
-                <img src="./assets/Music_Concert.jpg" alt="details image" class="rounded">
+                <img src="./assets/costume_party.jpg" alt="details image" class="rounded" id="detailsImg">
             </div>
             <div class="detailsSubContainer d-flex flex-column gap-1">
                 <div class="container-fluid pt-2 bg-success-subtle text-center rounded-3 mt-5">
-                    <h3>Detalles</h3>
+                    <h3 id="detailName">Details</h3>
                 </div>
                 <ul>
                     <li>
                         <div class="listContainer">
-                            <h5>Name :</h5>
-                            <p>name</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="listContainer">
                             <h5>Date :</h5>
-                            <p>date</p>
+                            <p id="detailDate">date</p>
                         </div>
                     </li>
                     <li>
                         <div class="listContainer">
                             <h5>Description:</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus impedit harum
+                            <p id="detailDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus impedit harum
                                 totam
                                 distinctio beatae incidunt voluptatum quos? Provident itaque enim hic mollitia?
                                 Doloribus
@@ -78,32 +106,32 @@
                     <li>
                         <div class="listContainer">
                             <h5>Category :</h5>
-                            <p>category</p>
+                            <p id="detailCategory">category</p>
                         </div>
                     </li>
                     <li>
                         <div class="listContainer">
                             <h5>Place :</h5>
-                            <p>place</p>
+                            <p id="detailPlace">place</p>
                         </div>
                     </li>
                     <li>
                         <div class="listContainer">
                             <h5>Capacity :</h5>
-                            <p>capacity</p>
+                            <p id="detailCapacity">capacity</p>
                         </div>
                     </li>
                     <li>
                         <div class="listContainer">
                             <h5>Assistance or estimate :</h5>
-                            <p>estimate</p>
+                            <p id="detailEstimate">estimate</p>
                         </div>
                     </li>
 
                     <li>
                         <div class="listContainer">
                             <h5>Price :</h5>
-                            <p>price</p>
+                            <p id="detailPrice">price</p>
                         </div>
                     </li>
 
