@@ -89,6 +89,14 @@ body > aside {
   padding: 1rem;
   transition: box-shadow 0.7s;
 }
+body > aside::before {
+  content: "Aún sin implementar lógica";
+  color: red;
+}
+body > aside::after {
+  content: "";
+  color: red;
+}
 
 .form-check-input {
   min-width: 1rem;
@@ -194,6 +202,7 @@ footer {
 .detailsContainer {
   box-shadow: #adb5bd64 1px 1px 15px;
   transition: box-shadow 0.7s;
+  background-color: rgb(204, 204, 226);
 }
 .detailsContainer:hover {
   transition: box-shadow 0.7s;
@@ -206,10 +215,16 @@ footer {
 .detailsContainer ul {
   list-style-type: none;
 }
+.detailsImg {
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+}
 .detailsImg img {
-  max-width: 25rem;
-  width: 75vw;
-  height: max-content;
+  border-radius: 22px;
+  width: 100%;
+  height: 100%;
+  transition: all 1s ease-in-out;
+  object-fit: cover;
 }
 .detailsSubContainer {
   border: #adb5bd64 solid 1px;
@@ -219,7 +234,7 @@ footer {
 }
 .listContainer {
   display: flex;
-  gap: 2rem;
+  gap: 0.3rem;
   border-bottom: #adb5bd 1px solid;
 }
 h1 {
@@ -267,4 +282,43 @@ h1 {
   /* aside {
     margin-bottom: 10rem;
   } */
+  body > aside::before {
+    content: "";
+    color: red;
+  }
+  body > aside::after {
+    content: "Aún sin implementar lógica";
+    color: red;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .detailsContainer {
+    min-height: max-content;
+  }
+  .detailsSubContainer {
+    height: 65vh;
+    min-height: 479px;
+    overflow: scroll;
+  }
+  .detailsImg {
+    min-height: 479px;
+  }
+  .detailsImg img {
+    height: 65vh;
+    width: 25vw;
+    min-height: 479px;
+    opacity: 0.7;
+    object-fit: cover;
+  }
+  .detailsImg img:hover {
+    width: 100%;
+    opacity: 1;
+  }
+
+  .detailsImg,
+  .detailsImg img,
+  .detailsImg img:hover {
+    transition: all 1s ease-in-out;
+  }
 }

@@ -23,12 +23,12 @@ for (let i in data.events) {
   cardFooterA.className = "btn btn-dark";
   cardFooterA.textContent = "See more...";
 
-//   console.table(data.events[i]);
+  //   console.table(data.events[i]);
   cardBodyTitle.textContent = data.events[i].name;
   cardBodyP.textContent = data.events[i].description;
   cardFooterH5.textContent = `$${data.events[i].price}`;
   img.src = data.events[i].image;
-  cardFooterA.href= "./details.html"
+  cardFooterA.href = `./details.html?id=${data.events[i]._id}`;
 
   card.appendChild(img);
   card.appendChild(cardBody);
