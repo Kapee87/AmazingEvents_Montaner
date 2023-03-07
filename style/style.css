@@ -92,6 +92,7 @@ body > aside {
 body > aside::before {
   content: "Aún sin implementar lógica";
   color: red;
+  animation: intermitente 4s infinite alternate-reverse;
 }
 body > aside::after {
   content: "";
@@ -106,6 +107,13 @@ aside form label p {
   width: max-content;
 }
 
+body > aside:hover{
+  transition: box-shadow 0.7s;
+  box-shadow: 5px 5px 20px rgba(237, 236, 255, 0.394),
+    -5px -5px 20px rgba(255, 255, 255, 0.254);
+  /* -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px); */
+}
 /* Seción home */
 
 main {
@@ -124,7 +132,6 @@ main {
   /* box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60); */
 }
 .card:hover,
-body > aside:hover,
 .form-control:hover {
   transition: box-shadow 0.7s;
   box-shadow: 5px 5px 40px rgba(237, 236, 255, 0.594),
@@ -217,6 +224,7 @@ footer {
   list-style-type: none;
 }
 .detailsImg {
+  position: relative;
   overflow: hidden;
   transition: all 1s ease-in-out;
 }
@@ -226,6 +234,54 @@ footer {
   height: 100%;
   transition: all 1s ease-in-out;
   object-fit: cover;
+}
+.detailsImg::after {
+  position: absolute;
+  background: url("../assets/arrows-angle-expand.svg");
+  background-repeat: no-repeat;
+  content: "";
+  height: 40%;
+  width: 70%;
+  margin: 0 1rem;
+  transform: rotate(45deg);
+  text-shadow: aliceblue 3px 3px 5px;
+  font-size: 3rem;
+  opacity: 0.6;
+  animation: rotatingArrows 5s infinite;
+  transition: all 1s;
+}
+@keyframes rotatingArrows {
+  0% {
+    transform: rotate(45deg);
+  }
+  40% {
+    transform: scale(0.7);
+    content: "mouse over";
+  }
+  50% {
+    transform: rotate(180deg);
+    content: "mouse over";
+  }
+  60% {
+    transform: scale(0.6);
+    content: "mouse over";
+  }
+  70% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(45deg);
+    /* transform: scale(1); */
+  }
+}
+.detailsImg:hover::after {
+  display: none;
+  transition: all 1s;
+}
+.detailsImg,
+.detailsImg img,
+.detailsImg img:hover {
+  transition: all 1s ease-in-out;
 }
 .detailsSubContainer {
   border: #adb5bd64 solid 1px;
@@ -280,9 +336,6 @@ h1 {
   main {
     margin-top: 10vh;
   }
-  /* aside {
-    margin-bottom: 10rem;
-  } */
   body > aside::before {
     content: "";
     color: red;
@@ -290,6 +343,7 @@ h1 {
   body > aside::after {
     content: "Aún sin implementar lógica";
     color: red;
+    animation: intermitente 4s infinite alternate-reverse;
   }
 }
 
@@ -315,10 +369,13 @@ h1 {
     width: 100%;
     opacity: 1;
   }
+}
 
-  .detailsImg,
-  .detailsImg img,
-  .detailsImg img:hover {
-    transition: all 1s ease-in-out;
+@keyframes intermitente {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

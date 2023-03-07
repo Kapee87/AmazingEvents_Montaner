@@ -22,7 +22,7 @@ function createCategorys(categoryParam) {
 }
 
 function createCard(dataParam) {
-  console.log(dataParam);
+  
   newCardTemplate += `
 <div class="card border-light p-3 justify-content-between">
 <div class="card-body d-flex flex-column align-items-center">
