@@ -110,7 +110,6 @@ aside form label p {
 
 main {
   margin: 1rem 0 5rem 0;
-
 }
 
 .card {
@@ -133,10 +132,11 @@ body > aside:hover,
   /* -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px); */
 }
+
+.card-img img,
 .card-img {
   background-color: rgb(66, 47, 84);
-  padding: 0.1rem;
-  width: 90%;
+  width: 100%;
   max-width: 28rem;
   height: 40%;
   min-height: 10rem;

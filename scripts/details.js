@@ -1,3 +1,4 @@
+/*
 const urlSearchParams = new URLSearchParams(window.location.search);
 let detailId = urlSearchParams.get("id");
 let [detailsEvent] = data.events.filter((e) => e._id === parseInt(detailId));
@@ -22,3 +23,4 @@ detailPlace.textContent = detailsEvent.place;
 detailCapacity.textContent = detailsEvent.capacity;
 detailEstimate.textContent = detailsEvent.estimate;
 detailPrice.textContent = detailsEvent.price;
+*/

@@ -25,8 +25,8 @@ function createCard(dataParam) {
   console.log(dataParam);
   newCardTemplate += `
 <div class="card border-light p-3 justify-content-between">
-<div class="ccard-body d-flex flex-column align-items-center">
-<img class="card-img mt-2" src="${dataParam.image}" alt="${dataParam.name}">
+<div class="card-body d-flex flex-column align-items-center">
+<a class="card-img mt-2" href="./details.html?id=${dataParam._id}" role="button"><img src="${dataParam.image}" alt="${dataParam.name}"></a>
     <h4 class="card-title">${dataParam.name}</h4>
     <p class="card-text">${dataParam.description}</p>
 </div>
@@ -37,6 +37,7 @@ function createCard(dataParam) {
 </div>
 `;
 }
+
 //implement
 fillCategoryArray();
 for (let i in categoryArray) {
