@@ -244,8 +244,9 @@ footer {
   width: 70%;
   margin: 0 1rem;
   transform: rotate(45deg);
+  padding: 1rem;
   text-shadow: aliceblue 3px 3px 5px;
-  font-size: 3rem;
+  font-size: 2.5rem;
   opacity: 0.6;
   animation: rotatingArrows 5s infinite;
   transition: all 1s;
