@@ -150,7 +150,14 @@ main {
   max-height: 15rem;
   align-self: center;
   box-shadow: black 1px 1px 5px;
-  transition: background-color 2s;
+  transition: all 2s;
+}
+.card-img{
+  overflow: hidden;
+}
+.card-img img:hover{
+  transition: all 3s;
+  transform: scale(1.5);
 }
 
 footer {
