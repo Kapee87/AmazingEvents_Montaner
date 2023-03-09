@@ -1,26 +1,66 @@
-/*
 const urlSearchParams = new URLSearchParams(window.location.search);
 let detailId = urlSearchParams.get("id");
 let [detailsEvent] = data.events.filter((e) => e._id === parseInt(detailId));
+let tempContainer = "";
+let main = document.querySelector("main");
 
-let img = document.getElementById("detailsImg");
-let detailName = document.getElementById("detailName");
-let detailDate = document.getElementById("detailDate");
-let detailDescription = document.getElementById("detailDescription");
-let detailCategory = document.getElementById("detailCategory");
-let detailPlace = document.getElementById("detailPlace");
-let detailCapacity = document.getElementById("detailCapacity");
-let detailEstimate = document.getElementById("detailEstimate");
-let detailPrice = document.getElementById("detailPrice");
+tempContainer += `
+<div class="container border rounded d-flex flex-column flex-lg-row gap-2 detailsContainer">
+            <div class="detailsImg py-3 d-flex justify-content-center justify-content-lg-start align-items-lg-center">
+                <img src="${detailsEvent.image}" alt="details image" class="rounded" id="detailsImg">
+            </div>
+            <div class="detailsSubContainer d-flex flex-column gap-1">
+                <div class="container-fluid pt-2 bg-success-subtle text-center rounded-3 mt-5">
+                    <h3 id="detailName">${detailsEvent.name}</h3>
+                </div>
+                <ul>
+                    <li>
+                        <div class="listContainer">
+                            <h5>Date :</h5>
+                            <p id="detailDate">${detailsEvent.date}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="listContainer">
+                            <h5>Description:</h5>
+                            <p id="detailDescription">${detailsEvent.description}
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="listContainer">
+                            <h5>Category :</h5>
+                            <p id="detailCategory">${detailsEvent.category}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="listContainer">
+                            <h5>Place :</h5>
+                            <p id="detailPlace">${detailsEvent.place}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="listContainer">
+                            <h5>Capacity :</h5>
+                            <p id="detailCapacity">${detailsEvent.capacity}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="listContainer">
+                            <h5>Assistance or estimate :</h5>
+                            <p id="detailEstimate">${detailsEvent.estimate}</p>
+                        </div>
+                    </li>
 
-console.log(data.currentDate);
-img.src = detailsEvent.image;
-detailName.textContent = detailsEvent.name;
-detailDate.textContent = detailsEvent.date;
-detailDescription.textContent = detailsEvent.description;
-detailCategory.textContent = detailsEvent.category;
-detailPlace.textContent = detailsEvent.place;
-detailCapacity.textContent = detailsEvent.capacity;
-detailEstimate.textContent = detailsEvent.estimate;
-detailPrice.textContent = detailsEvent.price;
-*/
+                    <li>
+                        <div class="listContainer">
+                            <h5>Price :</h5>
+                            <p id="detailPrice">${detailsEvent.price}</p>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+`;
+
+main.innerHTML = tempContainer;
