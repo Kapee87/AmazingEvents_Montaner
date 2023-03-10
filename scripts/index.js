@@ -1,6 +1,11 @@
 let main = document.querySelector("main");
 
-for (let i in data.events) {
-  createCard(data.events[i]);
+function loadIndexCards(infoArray) {
+  let newCardTemplate = "";
+  infoArray.forEach((element) => {
+    newCardTemplate += createCard(element);
+  });
+  main.innerHTML = newCardTemplate;
 }
-main.innerHTML = newCardTemplate;
+
+loadIndexCards(data.events);

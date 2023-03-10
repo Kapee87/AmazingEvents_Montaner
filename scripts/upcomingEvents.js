@@ -1,9 +1,12 @@
 let main = document.querySelector("main");
 
-for (let i in data.events) {
-  if (Date.parse(data.currentDate) < Date.parse(data.events[i].date)) {
-    createCard(data.events[i]);
-  }
+function loadIndexCards() {
+  data.events.forEach((element) => {
+    if (Date.parse(data.currentDate) < Date.parse(element.date)){
+      createCard(element);
+    }
+  });
+  main.innerHTML = newCardTemplate;
 }
 
-main.innerHTML = newCardTemplate;
+loadIndexCards();
