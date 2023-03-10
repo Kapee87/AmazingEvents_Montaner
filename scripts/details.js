@@ -7,7 +7,9 @@ let main = document.querySelector("main");
 tempContainer += `
 <div class="container border rounded d-flex flex-column flex-lg-row gap-2 detailsContainer">
             <div class="detailsImg py-3 d-flex justify-content-center justify-content-lg-start align-items-lg-center">
-                <img src="${detailsEvent.image}" alt="details image" class="rounded" id="detailsImg">
+                <img src="${
+                  detailsEvent.image
+                }" alt="details image" class="rounded" id="detailsImg">
             </div>
             <div class="detailsSubContainer d-flex flex-column gap-1">
                 <div class="container-fluid pt-2 bg-success-subtle text-center rounded-3 mt-5">
@@ -23,7 +25,9 @@ tempContainer += `
                     <li>
                         <div class="listContainer">
                             <h5>Description:</h5>
-                            <p id="detailDescription">${detailsEvent.description}
+                            <p id="detailDescription">${
+                              detailsEvent.description
+                            }
                             </p>
                         </div>
                     </li>
@@ -47,8 +51,10 @@ tempContainer += `
                     </li>
                     <li>
                         <div class="listContainer">
-                            <h5>Assistance or estimate :</h5>
-                            <p id="detailEstimate">${detailsEvent.estimate}</p>
+                            <h5>${Object.keys(detailsEvent)[8]} :</h5>
+                            <p id="detailEstimate">${
+                              detailsEvent.estimate | detailsEvent.assistance
+                            }</p>
                         </div>
                     </li>
 

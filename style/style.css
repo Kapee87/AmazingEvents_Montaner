@@ -107,7 +107,7 @@ aside form label p {
   width: max-content;
 }
 
-body > aside:hover{
+body > aside:hover {
   transition: box-shadow 0.7s;
   box-shadow: 5px 5px 20px rgba(237, 236, 255, 0.394),
     -5px -5px 20px rgba(255, 255, 255, 0.254);
@@ -152,12 +152,12 @@ main {
   box-shadow: black 1px 1px 5px;
   transition: all 2s;
 }
-.card-img{
+.card-img {
   overflow: hidden;
 }
-.card-img img:hover{
+.card-img img:hover {
   transition: all 3s;
-  transform: scale(1.5);
+  transform: scale(1.4);
 }
 
 footer {
@@ -226,7 +226,6 @@ footer {
   -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
 }
-
 .detailsContainer ul {
   list-style-type: none;
 }
@@ -257,6 +256,9 @@ footer {
   opacity: 0.6;
   animation: rotatingArrows 5s infinite;
   transition: all 1s;
+}
+.detailsSubContainer ul .listContainer h5 {
+  text-transform: capitalize;
 }
 @keyframes rotatingArrows {
   0% {
