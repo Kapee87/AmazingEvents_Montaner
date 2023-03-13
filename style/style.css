@@ -89,15 +89,6 @@ body > aside {
   padding: 1rem;
   transition: box-shadow 0.7s;
 }
-body > aside::before {
-  content: "Aún sin implementar lógica";
-  color: red;
-  animation: intermitente 4s infinite alternate-reverse;
-}
-body > aside::after {
-  content: "";
-  color: red;
-}
 
 .form-check-input {
   min-width: 1rem;
@@ -345,15 +336,6 @@ h1 {
   }
   main {
     margin-top: 10vh;
-  }
-  body > aside::before {
-    content: "";
-    color: red;
-  }
-  body > aside::after {
-    content: "Aún sin implementar lógica";
-    color: red;
-    animation: intermitente 4s infinite alternate-reverse;
   }
 }
 
