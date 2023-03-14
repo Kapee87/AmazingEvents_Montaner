@@ -2,6 +2,7 @@
 const categoryForm = document.querySelector(".categoryForm");
 const buscarNombre = document.querySelector("#buscarNombre");
 const submitBtn = document.querySelector("#submitBtn");
+let eventArray = data.events.map((e) => e);
 let categoryArray = [];
 let nameFilter = [];
 let categoryFilterArray = [];
@@ -31,7 +32,7 @@ function createCard(dataParam) {
   let newCardTemplate = "";
   if (dataParam === "") {
     newCardTemplate += `
-  <h4 class="text-light">No se encontraron coincidencias</h4>
+  <h4 class="text-light">Not Found</h4>
   `;
   } else {
     newCardTemplate += `
@@ -51,9 +52,6 @@ function createCard(dataParam) {
   return newCardTemplate;
 }
 function loadFilteredCard(filteredArray) {
-  console.log(filteredArray.length);
-  console.log(categoryFilterArray.length);
-  console.log(buscarNombre.value === "");
   if (
     filteredArray.length === 0 &&
     categoryFilterArray.length > 0 &&
@@ -91,8 +89,7 @@ function categoryHandler(e) {
 }
 function filter() {
   searchValue = buscarNombre.value.toLowerCase();
-  filteredEvents = data.events.filter((ev) => {
-    // console.log(categoryFilterArray);
+  filteredEvents = eventArray.filter((ev) => {
     return (
       (ev.name.toLowerCase().includes(searchValue) ||
         ev.description.toLowerCase().includes(searchValue)) &&
@@ -102,21 +99,9 @@ function filter() {
   });
 
   loadFilteredCard(filteredEvents);
-  /*
-  let filteredEventsArray = eventsData.events.filter(each => {
-    return (
-      (each.name.toLowerCase().includes(textInput)  (each.description.toLowerCase().includes(textInput)))
-      && 
-      (checks.length === 0  checks.includes(each.category))
-    )
-  })
-
-  if (filteredEventsArray.length > 0) {
-    renderEvents("#cards", filteredEventsArray)
-  } else {
-    renderEvents("#cards", [])
-  }
-  */
+}
+function setArray(array) {
+  eventArray = array.map((e) => e);
 }
 
 //event Listeners
@@ -124,52 +109,27 @@ buscarNombre.addEventListener("keyup", (e) => {
   // console.log(buscarNombre.value ? true : false);
   filter();
 });
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  mainClean();
+  // setTimeout(()=> {filter}, 5);
+  setTimeout(() => {
+    filter();
+  }, 300);
+  if (filteredEvents.length === 0) {
+    Swal.fire(
+      "Lo que buscás para darle sentido a la vorágine que interpretas como vida, no está en este humilde apartado.",
+      "=D",
+      "info"
+    );
+    buscarNombre.value = "";
+    let checks = document.querySelectorAll("input[type=checkbox]");
+    checks.forEach((check) => (check.checked = false));
+    categoryFilterArray = [];
+  }
+});
 
 //implement
 fillCategoryArray();
 categoryArray.forEach((category) => createCategorys(category));
 categoryForm.innerHTML = categoryTemplate;
-
-
-
-
-
-
-
-
-/* 
-function loadFilteredCard(filteredArray) {
-  if (filteredArray.length === 0) {
-    loadCards("empty");
-  } else {
-    loadCards(filteredArray);
-  }
-}
-function categoryFilter(event) {
-  
-  mainClean();
-  cardFiltered(categoryFilterArray);
-  loadFilteredCard(filteredCategories);
-  
-}
-function cardFiltered(filterArray) {
-  let temp = [];
-  filteredCategories = [];
-  filterArray.forEach((cat) => {
-    temp = data.events.filter((event) =>
-      event.category.toLowerCase().includes(cat)
-    );
-    filteredCategories = filteredCategories.concat(temp);
-  });
-  if (filteredCategories.length === 0) {
-    filteredCategories = data.events;
-  }
-}
-function nameFiltered(value) {
-  nameFilter = filteredCategories.filter((ev) =>
-    ev.name.toLowerCase().includes(value.toLowerCase())
-  );
-  mainClean();
-  loadFilteredCard(nameFilter);
-}
-*/

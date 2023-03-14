@@ -1,18 +1,7 @@
-/* let main = document.querySelector("main");
-
-function loadIndexCards() {
-  data.events.forEach((element) => {
-    if (Date.parse(data.currentDate) < Date.parse(element.date)){
-      createCard(element);
-    }
-  });
-  main.innerHTML = newCardTemplate;
-}
-
-loadIndexCards();
- */
-
 let main = document.querySelector("main");
+const upcomingArray = data.events.filter(
+  (e) => Date.parse(data.currentDate) < Date.parse(e.date)
+);
 
 function loadIndexCards(infoArray) {
   let newCardTemplate = "";
@@ -28,6 +17,5 @@ function loadIndexCards(infoArray) {
   main.innerHTML = newCardTemplate;
 }
 
+setArray(upcomingArray);
 loadIndexCards(data.events);
-
-console.log(data.currentDate);

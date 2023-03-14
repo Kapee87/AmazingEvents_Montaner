@@ -1,4 +1,7 @@
-/* let main = document.querySelector("main");
+const main = document.querySelector("main");
+const pastArray = data.events.filter(
+  (e) => Date.parse(data.currentDate) > Date.parse(e.date)
+);
 
 function loadIndexCards(infoArray) {
   let newCardTemplate = "";
@@ -7,27 +10,12 @@ function loadIndexCards(infoArray) {
   } else {
     infoArray.forEach((element) => {
       if (Date.parse(data.currentDate) > Date.parse(element.date)) {
-        createCard(element);
+        newCardTemplate += createCard(element);
       }
     });
   }
   main.innerHTML = newCardTemplate;
 }
 
-loadIndexCards();
- */
-let main = document.querySelector("main");
-
-function loadIndexCards(infoArray) {
-  let newCardTemplate = "";
-  if (infoArray === "") {
-    newCardTemplate += createCard("");
-  } else {
-    infoArray.forEach((element) => {
-      newCardTemplate += createCard(element);
-    });
-  }
-  main.innerHTML = newCardTemplate;
-}
-
+setArray(pastArray);
 loadIndexCards(data.events);

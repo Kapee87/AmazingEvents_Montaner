@@ -1,4 +1,5 @@
 let main = document.querySelector("main");
+const indexArray = data.events;
 
 function loadIndexCards(infoArray) {
   let newCardTemplate = "";
@@ -12,4 +13,5 @@ function loadIndexCards(infoArray) {
   main.innerHTML = newCardTemplate;
 }
 
-loadIndexCards(data.events);
+setArray(indexArray);
+loadIndexCards(indexArray);
