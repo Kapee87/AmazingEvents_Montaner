@@ -118,7 +118,7 @@ submitBtn.addEventListener("click", (e) => {
   }, 300);
   if (filteredEvents.length === 0) {
     Swal.fire(
-      "Lo que buscás para darle sentido a la vorágine que interpretas como vida, no está en este humilde apartado.",
+      "What you are looking for to make sense of the maelstrom you interpret as life, it is not located in this humble website.",
       "=D",
       "info"
     );
