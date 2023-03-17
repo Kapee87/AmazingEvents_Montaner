@@ -1,5 +1,5 @@
 let main = document.querySelector("main");
-const indexArray = data.events;
+let indexArray;
 
 function loadIndexCards(infoArray) {
   let newCardTemplate = "";
@@ -10,8 +10,11 @@ function loadIndexCards(infoArray) {
       newCardTemplate += createCard(element);
     });
   }
+  if (!apiWorking) {
+    newCardTemplate = `<h3 class="text-danger-subtle col-12 apiNotWorking">Api not working, using static data instead</h3>
+    ${newCardTemplate}`;
+  }
   main.innerHTML = newCardTemplate;
 }
 
-setArray(indexArray);
-loadIndexCards(indexArray);
+setSection("index");

@@ -1,10 +1,12 @@
 const urlSearchParams = new URLSearchParams(window.location.search);
+const apiWorkingLabel = document.getElementById("apiWorking");
 let detailId = urlSearchParams.get("id");
-let [detailsEvent] = data.events.filter((e) => e._id === parseInt(detailId));
+let detailsEvent;
 let tempContainer = "";
 let main = document.querySelector("main");
 
-tempContainer += `
+function createDetailsCard() {
+  tempContainer += `
 <div class="container border rounded d-flex flex-column flex-lg-row gap-2 detailsContainer">
             <div class="detailsImg py-3 d-flex justify-content-center justify-content-lg-start align-items-lg-center">
                 <img src="${
@@ -68,5 +70,18 @@ tempContainer += `
                 </ul>
             </div>
 `;
+  main.innerHTML = tempContainer;
+}
+let dataTemp;
+async function filtrarPorId() {
+  data = await cargarData();
+  [detailsEvent] = await data.events.filter(
+    (e) => e._id === parseInt(detailId)
+  );
+  // detailsEvent = data.events.filter((e) => e._id === parseInt(detailId));
+  console.log(data);
+  checkApi();
+  createDetailsCard();
+}
 
-main.innerHTML = tempContainer;
+filtrarPorId();

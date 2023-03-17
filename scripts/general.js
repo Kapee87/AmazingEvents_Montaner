@@ -1,13 +1,15 @@
+
 //variable declaration
 const categoryForm = document.querySelector(".categoryForm");
 const buscarNombre = document.querySelector("#buscarNombre");
 const submitBtn = document.querySelector("#submitBtn");
-let eventArray = data.events.map((e) => e);
+let eventArray;
 let categoryArray = [];
 let nameFilter = [];
 let categoryFilterArray = [];
 let filteredEvents = data.events;
 let categoryTemplate = "";
+let section = "index";
 
 //function declaration
 function fillCategoryArray() {
@@ -101,7 +103,21 @@ function filter() {
   loadFilteredCard(filteredEvents);
 }
 function setArray(array) {
-  eventArray = array.map((e) => e);
+  if (section === "index") {
+    eventArray = array.map((e) => e);
+  } else if (section === "past") {
+    eventArray = array.filter(
+      (e) => Date.parse(data.currentDate) > Date.parse(e.date)
+    );
+  } else if (section === "upcoming") {
+    eventArray = array.filter(
+      (e) => Date.parse(data.currentDate) < Date.parse(e.date)
+    );
+  }
+  console.log(eventArray);
+}
+function setSection(sectionSetter) {
+  section = sectionSetter;
 }
 
 //event Listeners
@@ -130,6 +146,16 @@ submitBtn.addEventListener("click", (e) => {
 });
 
 //implement
-fillCategoryArray();
-categoryArray.forEach((category) => createCategorys(category));
-categoryForm.innerHTML = categoryTemplate;
+async function start() {
+  data = await cargarData();
+  console.log(data);
+  eventArray = data.events.map((e) => e);
+  fillCategoryArray();
+  categoryArray.forEach((category) => createCategorys(category));
+  categoryForm.innerHTML = categoryTemplate;
+  indexArray = data.events;
+  setArray(indexArray);
+  loadIndexCards(indexArray);
+}
+
+start();

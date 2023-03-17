@@ -1,7 +1,5 @@
 const main = document.querySelector("main");
-const pastArray = data.events.filter(
-  (e) => Date.parse(data.currentDate) > Date.parse(e.date)
-);
+let pastArray;
 
 function loadIndexCards(infoArray) {
   let newCardTemplate = "";
@@ -14,8 +12,11 @@ function loadIndexCards(infoArray) {
       }
     });
   }
+  if (!apiWorking) {
+    newCardTemplate = `<h3 class="text-danger-subtle col-12">Api not working, using static data instead</h3>
+    ${newCardTemplate}`;
+  }
   main.innerHTML = newCardTemplate;
 }
 
-setArray(pastArray);
-loadIndexCards(data.events);
+setSection("past");
