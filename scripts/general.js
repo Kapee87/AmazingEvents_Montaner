@@ -1,4 +1,3 @@
-
 //variable declaration
 const categoryForm = document.querySelector(".categoryForm");
 const buscarNombre = document.querySelector("#buscarNombre");
@@ -93,8 +92,7 @@ function filter() {
   searchValue = buscarNombre.value.toLowerCase();
   filteredEvents = eventArray.filter((ev) => {
     return (
-      (ev.name.toLowerCase().includes(searchValue) ||
-        ev.description.toLowerCase().includes(searchValue)) &&
+      ev.name.toLowerCase().includes(searchValue) &&
       (categoryFilterArray.length === 0 ||
         categoryFilterArray.includes(ev.category.toLowerCase()))
     );
