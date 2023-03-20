@@ -79,9 +79,10 @@ async function filtrarPorId() {
     (e) => e._id === parseInt(detailId)
   );
   // detailsEvent = data.events.filter((e) => e._id === parseInt(detailId));
-  console.log(data);
+  //   console.log(data);
   checkApi();
   createDetailsCard();
+  
 }
 
 filtrarPorId();

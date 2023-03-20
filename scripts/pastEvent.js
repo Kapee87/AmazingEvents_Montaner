@@ -1,5 +1,6 @@
 const main = document.querySelector("main");
 let pastArray;
+const apiWorkingLabel = document.getElementById("apiWorking");
 
 function loadIndexCards(infoArray) {
   let newCardTemplate = "";
@@ -12,10 +13,10 @@ function loadIndexCards(infoArray) {
       }
     });
   }
-  if (!apiWorking) {
-    newCardTemplate = `<h3 class="text-danger-subtle col-12">Api not working, using static data instead</h3>
-    ${newCardTemplate}`;
-  }
+  // if (!apiWorking) {
+  //   newCardTemplate = `<h3 class="text-danger-subtle col-12 apiNotWorking">Api not working, using local data instead</h3>
+  //   ${newCardTemplate}`;
+  // }
   main.innerHTML = newCardTemplate;
 }
 

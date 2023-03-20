@@ -1,6 +1,7 @@
 let apiWorking = true;
 //modifcar el url para probar modo 'api caida'
-let url = "https://mindhub-xj03.onrender.com/api/amazing";
+let url = "https://mindhub-xj03.onrender.com/api/amazin";
+let localUrl = "http://127.0.0.1:5501/scripts/amazing.json";
 
 async function cargarData() {
   let dataTemp;
@@ -10,8 +11,9 @@ async function cargarData() {
       .then((datos) => (data = datos));
     apiWorking = true;
   } catch (error) {
-    console.log(error);
-    dataTemp = data;
+    dataTemp = await fetch(localUrl)
+      .then((res) => res.json())
+      .then((datos) => (data = datos));
     apiWorking = false;
   }
   return dataTemp;
@@ -21,6 +23,6 @@ function checkApi() {
   if (apiWorking) {
     apiWorkingLabel.className = "d-none";
   } else {
-    apiWorkingLabel.className = "text-warning apiNotWorking";
+    apiWorkingLabel.className = "text-warning apiNotWorking d-flex align-items-center";
   }
 }

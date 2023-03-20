@@ -6,11 +6,14 @@ let eventArray;
 let categoryArray = [];
 let nameFilter = [];
 let categoryFilterArray = [];
-let filteredEvents = data.events;
+let filteredEvents;
 let categoryTemplate = "";
 let section = "index";
 
 //function declaration
+async function cargarFilteredEVents() {
+  filteredEvents = await cargarData();
+}
 function fillCategoryArray() {
   data.events.forEach((element) => {
     if (!categoryArray.includes(element.category)) {
@@ -145,6 +148,7 @@ submitBtn.addEventListener("click", (e) => {
 
 //implement
 async function start() {
+  cargarFilteredEVents();
   data = await cargarData();
   console.log(data);
   eventArray = data.events.map((e) => e);
@@ -154,6 +158,7 @@ async function start() {
   indexArray = data.events;
   setArray(indexArray);
   loadIndexCards(indexArray);
+  checkApi();
 }
 
 start();

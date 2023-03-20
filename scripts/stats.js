@@ -94,7 +94,6 @@ function getRevenues(array, category, factor) {
       }
     });
     revenue.push(sumador);
-    sumador = 0;
   });
   /* console.log(revenue);
   console.log(category); */

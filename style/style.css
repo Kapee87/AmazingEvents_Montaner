@@ -6,10 +6,17 @@
 }
 body {
   overflow-x: hidden;
+  width: 100vw;
   /* background: url("../assets/logo_Amazing_Events.png");
   background-blend-mode: soft-light;
    */
+}
+.fond {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
   background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+  z-index: -1;
 }
 
 .customGrey {
@@ -236,18 +243,18 @@ footer {
 .detailsSubContainer ul .listContainer h5 {
   text-transform: capitalize;
 }
-.apiNotWorking{
-  animation: intermitente 2s infinite alternate-reverse;
+.apiNotWorking {
+  animation: intermitente 5s infinite alternate;
+  margin: -1rem;
+  padding: -1rem;
 }
 @keyframes switching {
   50% {
     transform: scale(0);
   }
-  100%{
+  100% {
     transform: scale(1);
   }
-
-  
 }
 .detailsImg:hover::after {
   display: none;
@@ -273,7 +280,7 @@ h1 {
   min-width: 15rem;
 }
 .titleContainer {
-  width: 100vw;
+  width: 98vw;
   padding: 0 5rem;
 }
 
@@ -309,10 +316,13 @@ h1 {
     width: auto;
   }
   main {
-    margin-top: 10vh;
+    margin-top: 5vh;
   }
-  .apiNotWorking{
-    transform: scale(.6);
+  .apiNotWorking {
+    transform: scale(0.6);
+  }
+  .customGrey h5 {
+    transform: scale(0.7);
   }
 }
 
@@ -338,13 +348,18 @@ h1 {
     width: 100%;
     opacity: 1;
   }
+  .contact {
+    height: 100%;
+  }
 }
 
 @keyframes intermitente {
   0% {
+    opacity: 0;
+    display: none;
+  }
+  80% {
     opacity: 1;
   }
-  100% {
-    opacity: 0;
-  }
+
 }
