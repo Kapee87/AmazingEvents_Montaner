@@ -1,6 +1,6 @@
 let apiWorking = true;
 //modifcar el url para probar modo 'api caida'
-let url = "https://mindhub-xj03.onrender.com/api/amazin";
+let url = "https://mindhub-xj03.onrender.com/api/amazing";
 let localUrl = "http://127.0.0.1:5501/scripts/amazing.json";
 
 async function cargarData() {
@@ -23,6 +23,7 @@ function checkApi() {
   if (apiWorking) {
     apiWorkingLabel.className = "d-none";
   } else {
-    apiWorkingLabel.className = "text-warning apiNotWorking d-flex align-items-center";
+    apiWorkingLabel.className =
+      "text-warning apiNotWorking d-flex align-items-center";
   }
 }
