@@ -84,19 +84,22 @@ function getCategories(array) {
   return categoryArray;
 }
 function getRevenues(array, category, factor) {
-  //   console.log(array);
+  // console.log(factor);
   revenue = [];
-  let sumador = 0;
   category.forEach((e) => {
+    let sumador = 0;
     array.forEach((el) => {
+      console.log(e.includes(el.category));
       if (e.includes(el.category)) {
         sumador += el.price * el[factor];
+        console.log(sumador);
       }
     });
     revenue.push(sumador);
+    console.warn("catChange");
   });
-  /* console.log(revenue);
-  console.log(category); */
+  // console.log(revenue);
+  // console.log(category);
 }
 function getCategoriesAttendance(array, assistOrEstimate) {
   categoryAttendance = [];
